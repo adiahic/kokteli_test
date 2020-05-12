@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: Testiranje(),
     );
@@ -49,7 +50,7 @@ class _TestiranjeState extends State<Testiranje> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                ' $koktelNaziv',
+                ' $koktelNaziv' ?? 'Vaš Koktel',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
@@ -62,9 +63,11 @@ class _TestiranjeState extends State<Testiranje> {
                 child: Container(
                   height: 350.0,
                   width: 350.0,
-                  child: Image.network('$koktelSlika'),
+                  child: Image.network('$koktelSlika' ??
+                      'https://www.cocktail-db.com/stat/img/300/KiwiMartini.jpg'),
                 ),
               ),
+              Text('Googlaj za dalje :)')
             ],
           ),
         ),
